@@ -77,11 +77,13 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
         <!-- Drawer Content -->
         <paper-menu attr-for-selected="data-route" selected="[[route]]">
+           
+            <!--
             <paper-submenu>
                 <iron-icon icon="stars"></iron-icon>
                 <paper-item class="menu-trigger">
                                         <iron-icon icon="stars"></iron-icon>
-                    <span>Interested by</span>
+                    <span>What interests me</span>
 
                 </paper-item>
                 <paper-menu class="menu-content">
@@ -96,19 +98,21 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                     </a>
                 </paper-menu>
             </paper-submenu>
+            -->
           <a data-route="home" href="{{baseUrl}}">
             <iron-icon icon="home"></iron-icon>
             <span>Home</span>
           </a>
+             <a data-route="interests" href="{{baseUrl}}interests">
+                <iron-icon icon="code"></iron-icon>
+                <span>What interests me</span>
+            </a>
 
           <a data-route="contact" href="{{baseUrl}}contact">
             <iron-icon icon="mail"></iron-icon>
             <span>Contact Me</span>
           </a>
-		  <a data-route="physical_web" href="{{baseUrl}}physical_web">
-			  <iron-icon  icon="code"></iron-icon>
-			  <span>Physical Web</span>
-		  </a>
+
         </paper-menu>
       </paper-scroll-header-panel>
 
@@ -120,7 +124,7 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
           <span class="space"></span>
 
-          <!-- Toolbar icons -->
+          <!-- Toolbar icons 
             <style is="custon-style">
                 #example-sizing-cover {
                     width: 60px;
@@ -129,15 +133,19 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 }
             </style>
             <iron-image sizing="cover" id="example-sizing-cover" alt="Bodo" src="./images/pegman_developer.png"></iron-image>
-
+            -->
           <!-- Application name -->
           <div class="middle middle-container">
             <div class="app-name">Sbodovsk land !</div>
           </div>
 
+            <google-signin theme="dark" width="iconOnly">
+                
+            </google-signin>
+            
           <!-- Application sub title -->
           <div class="bottom bottom-container">
-            <div class="bottom-title">The future is not here !</div>
+            <div class="bottom-title">The future is not here ! Be mine is for sure !!</div>
           </div>
         </paper-toolbar>
 
@@ -145,12 +153,9 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
         <div class="content">
           <iron-pages attr-for-selected="data-route" selected="{{route}}">
             <section data-route="home">
-              <paper-material elevation="1">
-                
-              </paper-material>
 
               <paper-material elevation="1">
-                <p>This is another card.</p>
+                <p>Hey ! This website is a playground for me, I try all my polymer/golang/progressive web app on this one.<br> It's also a way to show my work. So enjoy it ! :)</p>
               </paper-material>
 
             </section>
@@ -166,14 +171,34 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
                 <paper-material elevation="1">
                     <h2 class="page-title">Golang</h2>
                     <p>In this page, I wanna post every links I found useful about it</p>
+                    <paper-input label="Add a site">
+                        <paper-icon-button suffix icon="send"></paper-icon-button>
+                    </paper-input>
+                    
                 </paper-material>
 			</section>
               
-            <section data-route="polymer">
-                <paper-material elevation="1">
-                    <h2 class="page-title">Polymer</h2>
-                    <p>In this page, I wanna post every links I found useful about it</p>
-                </paper-material>
+            <section data-route="interests">
+                <paper-tabs selected="{{selected}}" align-bottom>
+                  <paper-tab>Polymer</paper-tab>
+                  <paper-tab>Golang</paper-tab>
+                  <paper-tab>Physical Web</paper-tab>
+                  <paper-tab>Progressive Web App</paper-tab>
+                </paper-tabs>
+                <iron-pages selected="{{selected}}">
+                    <div>Polymer</div>
+                    <div>Golang</div>
+                    <div>Physical Web</div>
+                    <div>Progressive Web App</div>
+                </iron-pages>
+                <iron-pages attr-for-selected="id">
+                    <section id="polymer">
+                       <paper-material elevation="1">
+                <p>Hey ! This website is a playground for me, I try all my polymer/golang/progressive web app on this one.<br> It's also a way to show my work. So enjoy it ! :)</p>
+              </paper-material>
+                    </section>
+                    
+                </iron-pages>
 			</section>
               
 			<section data-route="physical_web">
